@@ -41,12 +41,13 @@ const ITS_A_TIE       = 'Nobody won, it\'s a tie!';
 const INVALID_MOVE    = 'Invalid move!';
 
 class TicTacToe {
-    constructor() {
-        this.board = [
-            [null, null, null],
-            [null, null, null],
-            [null, null, null]
-        ];
+    // You can pass in a board state when constructing a new instance
+    constructor(board = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
+    ]) {
+        this.board = board;
         this.moves         = 0;
         this.boardHTML     = document.querySelector('[data-board]');
         this.player        = PLAYER_SYMBOL;
@@ -58,6 +59,8 @@ class TicTacToe {
     }
 
     init() {
+        this.renderBoard();
+
         // When a cell is clicked, call playerMove() with the cell's row and column
         this.boardHTML.addEventListener('click', event => {
             const { row, col } = event.target.dataset;
@@ -216,5 +219,18 @@ class TicTacToe {
     }
 }
 
+/**
+ * 
+ * You can also pass in a starting board state if you wish. For example:
+ * 
+const game = new TicTacToe([   
+    [PLAYER_SYMBOL, null, OPPONENT_SYMBOL],
+    [PLAYER_SYMBOL, null, OPPONENT_SYMBOL],
+    [null, null, null]
+]);
+ * 
+ */
+
 const game = new TicTacToe();
+
 game.init();

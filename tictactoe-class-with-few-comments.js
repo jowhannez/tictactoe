@@ -8,12 +8,12 @@ const ITS_A_TIE       = 'Nobody won, it\'s a tie!';
 const INVALID_MOVE    = 'Invalid move!';
 
 class TicTacToe {
-    constructor() {
-        this.board = [
-            [null, null, null],
-            [null, null, null],
-            [null, null, null]
-        ];
+    constructor(board = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
+    ]) {
+        this.board = board;
         this.moves         = 0;
         this.boardHTML     = document.querySelector('[data-board]');
         this.player        = PLAYER_SYMBOL;
