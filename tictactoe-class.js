@@ -146,13 +146,13 @@ class TicTacToe {
     // Checks if the match has been decided
     checkWinner() {
         // Check each row of the board
-        this.board.forEach(row => {
+        for (const row of this.board) {
             if (row.every(cell => cell === this.player)) {
                 this.matchDecided = PLAYER_WON;
             } else if (row.every(cell => cell === this.opponent)) {
                 this.matchDecided = OPPONENT_WON;
             }
-        });
+        };
 
         // Check each column of the board
         for (let i = 0; i < this.board.length; i++) {
