@@ -78,6 +78,7 @@ class TicTacToe {
         // Only allow moves on empty cells
         if (this.board[row][col] !== null) {
             alert(INVALID_MOVE);
+            return;
         }
 
         this.board[row][col] = this.player;
